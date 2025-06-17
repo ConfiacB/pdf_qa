@@ -1,5 +1,6 @@
 from openai import OpenAI
 
+# Give ChatGPT both the question and the relevant chunk(s) of the document as context
 def get_answer_from_context(question, context, api_key):
     client = OpenAI(api_key=api_key)
     response = client.chat.completions.create(
@@ -13,6 +14,7 @@ def get_answer_from_context(question, context, api_key):
                 "role": "user",
                 "content": f"Document: {context}\n\nQuestion: {question}"
             }
-        ]
+        ],
+        temperature=0
     )
     return response.choices[0].message.content.strip()

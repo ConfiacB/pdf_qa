@@ -1,9 +1,11 @@
 import fitz  # PyMuPDF
 
+# Read the PDF and extract the text
 def extract_text_from_pdf(path: str) -> str:
     doc = fitz.open(path)
     return "\n".join(page.get_text() for page in doc)
 
+# Split the text into small parts (called "chunks")
 def chunk_text(text, max_length=500, overlap=50):
     words = text.split()
     chunks = []
