@@ -15,7 +15,7 @@ This project allows you to upload a PDF file and ask questions about its content
    ```
 2. Run the program
    ```bash
-   python main.py --file "path_to_document.pdf"
+   python main.py --file "document.pdf"
    ```
 3. Set your API key
 
