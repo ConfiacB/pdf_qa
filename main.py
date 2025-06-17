@@ -1,10 +1,10 @@
-import argparse
 from document_parser import extract_text_from_pdf, chunk_text
 from retriever import embed_texts, retrieve_top_k
 from gpt_answer import get_answer_from_context
 
-def main(file_path):
+def main():
     api_key = input("Enter your OpenAI API Key: ").strip()
+    file_path = "whitepaper_Foundational Large Language models & text gen.pdf"
     text = extract_text_from_pdf(file_path)
     chunks = chunk_text(text)
     embeddings =  embed_texts(chunks, api_key)
@@ -20,7 +20,4 @@ def main(file_path):
         print(f"> Answer: {answer}")
 
 if __name__=="__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--file', type=str, required=True, help="PDF file path")
-    args = parser.parse_args()
-    main(args.file)
+    main()
