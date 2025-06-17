@@ -6,9 +6,9 @@ This project allows you to upload a PDF file and ask questions about its content
 
 ## Requirements
 
-- openai
-- PyMuPDF (fitz)
-- numpy
+- OpenAI
+- PyMuPDF (Fitz)
+- NumPy
 
 ## How to Run
 
