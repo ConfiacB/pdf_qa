@@ -1,7 +1,7 @@
 # Document QA using OpenAI API
 
 ## Overview
-This tool lets you upload a PDF and ask questions strictly based on its contents using the OpenAI ChatGPT API.
+This project allows you to upload a PDF file and ask questions about its content. It uses OpenAI's ChatGPT and Embedding APIs to generate document-grounded answers — avoiding hallucinations by only relying on the content of the file.
 
 ## Requirements
 - openai
@@ -13,8 +13,29 @@ This tool lets you upload a PDF and ask questions strictly based on its contents
    ```bash
    pip install -r requirements.txt
    ```
-   
-2. Run
+2. Run the program
    ```bash
    python main.py --file "path_to_document.pdf"
    ```
+3. Set your API key
+
+4. Ask questions
+
+## Project Structure
+```bash
+pdf_qa/
+│
+├── main.py              # Entry point - load file, run pipeline
+├── parser.py            # PDF loading and chunking
+├── retriever.py         # Embedding + similarity search
+├── gpt_answer.py        # ChatGPT call
+├── utils.py             # Helper functions
+├── requirements.txt     # Dependencies
+└── README.md            # You’re here
+```
+
+## Hallucination Strategy
+- Restrict GPT’s knowledge to the document with system prompt in the Chat API call
+- Parsing the PDF into smaller chunks, embed them, and then search for the most relevant chunks
+- Use the most relevant chunk as context for GPT
+- Fallback response when answer is missing, we tell GPT to say "Not available"
