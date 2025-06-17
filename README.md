@@ -51,6 +51,6 @@ pdf_qa/
 ## Hallucination Strategy
 
 - Restrict GPT’s knowledge to the document with system prompt in the Chat API call
-- Parsing the PDF into smaller chunks, embed them, and then search for the most relevant chunks
+- Parsing the PDF into small parts (chunks), embed them, and then search for the most relevant chunks
 - Use the most relevant chunk as context for GPT
 - Fallback response when answer is missing, we tell GPT to say "Not available"
